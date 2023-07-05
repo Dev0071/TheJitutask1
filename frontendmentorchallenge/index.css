@@ -13,17 +13,19 @@
 body {
 	font-size: 15px;
 	background-color: var(--Lightgray);
-	height: 100vh;
+	/* height: auto; */
 }
 
 .card {
 	margin: 0 auto;
-	height: 69%;
-	width: 20%;
-	margin-top: 10%;
+	height: 400px;
+	width: 270px;
+	/* margin-top: 10%; */
+	position: relative;
 	background-color: var(--White);
 	border-radius: 19px;
 	padding: 10px;
+	top: 20vh;
 }
 .cardimage img {
 	height: 100%;
@@ -37,8 +39,6 @@ body {
 	overflow: hidden;
 }
 .cardcontent {
-	position: relative;
-
 	margin-top: 18px;
 }
 #p1 {
@@ -51,17 +51,4 @@ body {
 	margin: 15px;
 	text-align: center;
 	color: var(--Lightgray);
-}
-
-@media screen and (max-width: 650px) {
-	.card {
-		height: 60%;
-		min-width: 50%;
-		margin: auto;
-		position: relative;
-		top: 100px;
-	}
-	.cardcontent {
-		margin-top: 2rem;
-	}
 }
