@@ -1,0 +1,134 @@
+:root {
+	--Verydarkblue: hsl(220, 13%, 13%);
+	--Darkgrayishblue: hsl(219, 9%, 45%);
+	--Grayishblue: hsl(220, 14%, 75%);
+	--Lightgrayishblue: hsl(223, 64%, 98%);
+	--White: hsl(0, 0%, 100%);
+	--Black: hsl(0, 0%, 0%);
+	--Orange: hsl(26, 100%, 55%);
+	--Paleorange: hsl(25, 100%, 94%);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: 'Kumbh Sans', sans-serif;
+}
+body {
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 16px;
+	background-color: var(--White);
+}
+.main {
+	margin-top: 3rem;
+	height: 100%;
+	width: 80%;
+	border: 2px solid black;
+}
+
+nav {
+	height: 50x;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 3px solid var(--Lightgrayishblue);
+}
+
+.logo-menu {
+	display: flex;
+	width: 60%;
+
+	justify-content: space-between;
+}
+
+.links ul {
+	display: flex;
+	list-style: none;
+	gap: 0 30px;
+
+	/* width: 50%; */
+	/* justify-content: space-around; */
+}
+li a {
+	color: var(--Grayishblue);
+	text-decoration: none;
+}
+.cart-profile {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 8%;
+}
+.profile-pic img {
+	height: 35px;
+	width: 35px;
+}
+
+.cart img {
+	height: 18px;
+}
+.container {
+	display: flex;
+	padding: 2rem;
+	border: 2px solid red;
+}
+.product {
+	display: flex;
+	flex-direction: column;
+	gap: 3rem 0;
+	border: 2px solid black;
+	align-items: center;
+	width: 50%;
+	/* padding: 4rem; */
+}
+.large-img img {
+	height: 23rem;
+	width: 23rem;
+	border-radius: 0.7rem;
+}
+.small-images {
+	display: flex;
+	/* gap: 0 2rem; */
+	border: 2px solid black;
+	gap: 0.8rem;
+}
+.small-img img {
+	height: 5rem;
+	width: 5rem;
+	border-radius: 0.7rem;
+}
+.product-content {
+	width: 50%;
+	display: flex;
+	justify-items: center;
+	border: 2px solid black;
+	padding: 3rem;
+}
+.content {
+	border: 2px solid red;
+}
+.content h3 {
+	color: var(--Orange);
+}
+.content h2 {
+	padding: 2rem 0;
+	font-size: 2rem;
+}
+.content p {
+	padding: 1.5rem 0;
+	color: var(--Grayishblue);
+}
+.price-tag {
+	display: flex;
+}
+.price h5 {
+	font-size: 1.3rem;
+}
+.discount p {
+	color: var(--Orange);
+}
