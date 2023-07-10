@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap');
+:root {
+	--Off-white: hsl(36, 100%, 99%);
+	--Grayishblue: hsl(233, 8%, 79%);
+	--Darkgrayishblue: hsl(236, 13%, 42%);
+	--Verydarkblue: hsl(240, 100%, 5%);
+	--Softorange: hsl(35, 77%, 62%);
+	--Softred: hsl(5, 85%, 63%);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: 'Inter', sans-serif;
+	box-sizing: border-box;
+}
+html {
+	font-size: 15px;
+}
+body {
+	max-width: 1100px;
+	margin: auto;
+	padding: 2rem 0;
+	background-color: var(--Off-white);
+}
+img {
+	max-width: 100%;
+	width: 100%;
+}
+p {
+	line-height: 1.8;
+	color: var(--Grayishblue);
+}
+ul {
+	list-style: none;
+}
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 1.25rem;
+}
+.header #close-button {
+	background: transparent;
+	border: none;
+	width: 2rem;
+	position: absolute;
+	right: 1.25rem;
+	/* top: 1.25rem; */
+	cursor: pointer;
+	z-index: 999;
+}
+.header img {
+	width: 4rem;
+}
+
+.header nav {
+	opacity: 0;
+	z-index: -999;
+	transition: all 0.3s ease-in-out;
+}
+
+.header nav.open {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	width: 75vw;
+	opacity: 1;
+	background-color: var(--Off-white);
+	padding: 1.25rem;
+	z-index: 99999;
+}
+.header nav ul {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.header nav ul li {
+	margin: 2rem 0;
+	font-size: 1.1rem;
+	cursor: pointer;
+}
+.header nav ul li:hover {
+	color: var(--Softorange);
+}
+.header .menu-button button {
+	background: transparent;
+	border: none;
+	width: 3rem;
+	cursor: pointer;
+}
+.show-case {
+	padding: 1.25rem;
+	padding-top: 0;
+}
+
+.show-case h1 {
+	font-size: 2rem;
+	color: var(--Verydarkblue);
+	margin: 1rem 0;
+	font-weight: 800;
+}
+
+.show-case div:first-child article p {
+	margin-bottom: 1rem;
+}
+.show-case button {
+	background-color: var(--Softred);
+	color: var(--Off-white);
+	padding: 0.8rem 2rem;
+	font-size: 1rem;
+	font-weight: 700;
+	border: none;
+	outline: none;
+	text-transform: uppercase;
+	letter-spacing: 0.2rem;
+	transition: all 0.3s ease-in-out;
+}
+.show-case button:hover {
+	background-color: var(--Verydarkblue);
+	cursor: pointer;
+}
+.show-case > div:last-child {
+	background-color: var(--Verydarkblue);
+	margin-top: 2rem;
+	padding: 1.2rem 1.25rem 0;
+}
+
+.show-case > div:last-child h2 {
+	color: var(--Softorange);
+}
+
+.show-case > div:last-child article {
+	padding: 1.25rem 0;
+}
+
+.show-case > div:last-child article:not(:last-child) {
+	border-bottom: 1px solid var(--Darkgrayishblue);
+}
+
+.show-case > div:last-child h3 {
+	color: var(--Off-white);
+	margin-bottom: 0.5rem;
+}
+.show-case > div:last-child article h3:hover {
+	cursor: pointer;
+	color: var(--Softorange);
+}
+.cards {
+	padding: 1.25rem;
+	display: grid;
+	grid-template-columns: repeat(1, 1fr);
+	gap: 2.5rem;
+}
+
+.cards article {
+	display: flex;
+	align-items: center;
+	gap: 1.25rem;
+}
+
+.cards article img {
+	width: 150px;
+}
+.cards article span {
+	color: var(--Grayishblue);
+	font-weight: bold;
+	font-size: 1.8rem;
+	opacity: 75%;
+}
+.cards article h4 {
+	color: var(--Verydarkblue);
+	font-size: 1.2rem;
+	font-weight: 700;
+	margin: 0.7rem 0;
+}
+@media (min-width: 768px) {
+	.cards {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+@media (min-width: 1024px) {
+	.header {
+		padding: 2rem 1.25rem;
+	}
+	.header .menu-button button {
+		display: none;
+	}
+	.header nav {
+		opacity: 1;
+		z-index: auto;
+		width: 100%;
+	}
+	.header nav #close-button {
+		display: none;
+	}
+	.header nav.open {
+		position: relative;
+		background-color: transparent;
+		width: auto;
+		padding: 0;
+		z-index: auto;
+	}
+	.header nav ul {
+		position: relative;
+		transform: translateY(0%);
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		gap: 2rem;
+	}
+	.header nav ul li {
+		margin: 0;
+	}
+	.show-case {
+		display: flex;
+		gap: 2rem;
+	}
+	.show-case h1 {
+		font-size: 3rem;
+	}
+
+	.show-case div:first-child article {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 2rem;
+		place-items: center;
+		margin-top: 2rem;
+	}
+	.show-case > div:last-child {
+		margin-top: 0;
+	}
+	.cards {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
