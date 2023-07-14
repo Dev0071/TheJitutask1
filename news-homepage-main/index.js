@@ -1,4 +1,3 @@
-// alert('working');
 const nav = document.querySelector('nav');
 const openMenu = document.getElementById('menu-button');
 const closeMenu = document.getElementById('close-button');

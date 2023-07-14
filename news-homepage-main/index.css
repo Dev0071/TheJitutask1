@@ -18,7 +18,7 @@ html {
 	font-size: 15px;
 }
 body {
-	max-width: 1100px;
+	max-width: 1000px;
 	margin: auto;
 	padding: 2rem 0;
 	background-color: var(--Off-white);
