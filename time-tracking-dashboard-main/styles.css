@@ -126,6 +126,7 @@ button {
 .card-content div:last-child {
 	display: flex;
 	justify-content: space-between;
+	flex-wrap: nowrap;
 	align-items: center;
 }
 .card-content div:last-child h2 {
