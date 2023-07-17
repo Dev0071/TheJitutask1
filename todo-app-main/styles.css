@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+
+:root {
+	/* dark mode */
+	--VeryLightGray: hsl(0, 0%, 98%);
+	--VeryLightGrayishBlue: hsl(236, 33%, 92%);
+	--LightGrayishBlue: hsl(233, 11%, 84%);
+	--DarkGrayishBlue: hsl(236, 9%, 61%);
+	--VeryDarkGrayishBlue: hsl(235, 19%, 35%);
+
+	/* light mode */
+	--VeryDarkBlue: hsl(235, 21%, 11%);
+	--VeryDarkDesaturatedBlue: hsl(235, 24%, 19%);
+	--LightGrayishBlue: hsl(234, 39%, 85%);
+	--LightGrayishBlue: hsl(236, 33%, 92%); /* hover*/
+	--DarkGrayishBlue: hsl(234, 11%, 52%);
+	--VeryDarkGrayishBlued: hsl(233, 14%, 35%);
+	--VeryDarkGrayishBlued1: hsl(237, 14%, 26%);
+
+	--BrightBlue: hsl(220, 98%, 61%);
+	--CheckBackground: linear-gradient hsl(192, 100%, 67%) to
+		hsl(280, 87%, 65%);
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	max-width: 1100px;
+	margin: auto;
+	height: 100vh;
+	background: var(--VeryDarkDesaturatedBlue);
+}
+html {
+	font-family: 'Josefin Sans', sans-serif;
+}
+.main {
+	height: 100%;
+	width: 100%;
+}
+.gradient {
+	background-image: url('./images/bg-mobile-dark.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	height: 30%;
+	width: 100%;
+	/* overflow: hidden; */
+}
+.gradient > div {
+	display: flex;
+	flex-direction: column;
+	width: 80%;
+	max-width: 450px;
+	margin: auto;
+	padding: 1rem;
+}
+.text-icon {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 1.5rem 0;
+}
+.text-icon span {
+	color: var(--VeryLightGray);
+	font-weight: 700;
+	font-size: 1.5rem;
+}
+.text-icon button {
+	background: transparent;
+	border: none;
+	cursor: pointer;
+}
+.text-icon img {
+	width: 1.5rem;
+	height: 1.5rem;
+}
+form {
+	display: flex;
+	background: var(--VeryDarkDesaturatedBlue);
+	padding: 0.5rem;
+	align-items: center;
+	gap: 0 15px;
+	border-radius: 8px;
+}
+
+form #text {
+	outline: none;
+	border: none;
+	padding: 10px;
+	color: var(--DarkGrayishBlue);
+	background-color: var(--VeryDarkDesaturatedBlue);
+	width: 90%;
+	font-size: 1rem;
+}
+
+.solid-color {
+	background: var(--VeryDarkBlue);
+	height: 70%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+}
+
+.app {
+	position: absolute;
+	border-radius: 10px;
+	height: fit-content;
+	max-width: 420px;
+	width: 80%;
+	top: -1.5rem;
+	/* margin-top: -rem; */
+	background: var(--VeryDarkDesaturatedBlue);
+}
+.buttons {
+	padding: 1.3rem;
+	display: flex;
+	justify-content: space-between;
+}
+.buttons button {
+	background: transparent;
+	color: var(--VeryLightGray);
+	border: none;
+	cursor: pointer;
+}
+.todos article {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 1rem;
+	border-bottom: 1px solid var(--VeryDarkGrayishBlue);
+}
+article div:first-child {
+	display: flex;
+	gap: 0.9rem;
+}
+article button,
+#bottom > button {
+	background: transparent;
+	border: none;
+	cursor: pointer;
+}
+
+article span {
+	color: var(--DarkGrayishBlue);
+}
+
+#bottom {
+	display: flex;
+	position: relative;
+	justify-content: space-around;
+	top: 10rem;
+	padding: 0.8rem 5.8rem;
+	/* width: 38%; */
+	gap: 0 0.8rem;
+	border-radius: 7px;
+	background: var(--VeryDarkDesaturatedBlue);
+}
+#bottom > button {
+	color: var(--DarkGrayishBlue);
+}

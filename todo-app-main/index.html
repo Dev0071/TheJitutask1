@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="styles.css">
+  <title>Frontend Mentor | Todo app</title>
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+</head>
+
+<body>
+  <main class="main">
+    <div class="gradient">
+      <div>
+        <div class="text-icon">
+          <span>TO DO</span>
+          <button>
+            <img src="./images/icon-sun.svg" alt="">
+          </button>
+        </div>
+        <form id='form' action="">
+
+          <input id="text" type="text" placeholder="Create a new todo">
+        </form>
+      </div>
+    </div>
+    <div class="solid-color">
+      <div class="app">
+        <div class="todos">
+          <!-- <article>
+            <div>
+              <input id='checkbox' type="checkbox" name="" id="">
+              <span>eat</span>
+            </div>
+            <button>
+              <img src="./images/icon-cross.svg" alt="">
+            </button>
+          </article> -->
+        </div>
+        <div class="buttons">
+          <button id="itemsLeft">0 todos left</button>
+          <button id="removeAll">Remove all</button>
+        </div>
+      </div>
+      <div id="bottom">
+        <button class="filter" data-filter="all">All</button>
+        <button class="filter" data-filter="active">Active</button>
+        <button class="filter" data-filter="completed">Completed</button>
+      </div>
+    </div>
+  </main>
+  <script src="index.js"></script>
+</body>
+
+</html>
