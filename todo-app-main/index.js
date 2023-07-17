@@ -1,7 +1,7 @@
 class Task {
-	constructor(description) {
+	constructor(description, completed = false) {
 		this.description = description;
-		this.completed = false;
+		this.completed = completed;
 	}
 
 	toggleCompleted() {
@@ -11,22 +11,25 @@ class Task {
 
 class TodoList {
 	constructor() {
-		this.tasks = [];
+		this.tasks = this.loadTasksFromLocalStorage() || [];
 	}
 
 	addTask(description) {
 		const newTask = new Task(description);
 		this.tasks.push(newTask);
+		this.saveTasksToLocalStorage();
 	}
 
 	removeTask(index) {
 		if (index >= 0 && index < this.tasks.length) {
 			this.tasks.splice(index, 1);
+			this.saveTasksToLocalStorage();
 		}
 	}
 
 	removeAllTasks() {
 		this.tasks = [];
+		this.saveTasksToLocalStorage();
 	}
 
 	filterTasks(filter) {
@@ -40,6 +43,24 @@ class TodoList {
 			default:
 				return [];
 		}
+	}
+
+	saveTasksToLocalStorage() {
+		localStorage.setItem(
+			'tasks',
+			JSON.stringify(this.tasks)
+		);
+	}
+
+	loadTasksFromLocalStorage() {
+		const tasksJSON = localStorage.getItem('tasks');
+		if (tasksJSON) {
+			const tasksData = JSON.parse(tasksJSON);
+			return tasksData.map(
+				(data) => new Task(data.description, data.completed)
+			);
+		}
+		return null;
 	}
 }
 
@@ -129,3 +150,6 @@ filters.forEach((filter) => {
 		renderTasks();
 	});
 });
+
+// Initial rendering of tasks
+renderTasks();
