@@ -34,13 +34,13 @@ nav {
 }
 form select {
 	min-width: 100px;
-	padding: 0.3rem;
+	padding: 0.3rem 0.7rem;
 }
 
 .user {
 	display: flex;
 	flex-direction: column;
-	padding: 1rem 2rem;
+	padding: 1rem;
 	gap: 0.5rem;
 	color: var(--textColor);
 }
@@ -51,8 +51,9 @@ form select {
 }
 .post {
 	display: flex;
-	padding: 1rem 2rem;
+	padding: 1rem;
 	gap: 0 1rem;
+	cursor: pointer;
 }
 
 .post img {
@@ -88,6 +89,10 @@ form select {
 	width: 1rem;
 }
 
+#post-counter {
+	padding: 1rem;
+}
+
 @media screen and (min-width: 650px) {
 	html {
 		font-size: 14px;
@@ -108,6 +113,13 @@ form select {
 	}
 	nav {
 		justify-content: space-between;
+	}
+	.user {
+		padding: 1rem 2rem;
+	}
+
+	.post {
+		padding: 1rem 2rem;
 	}
 	.post img {
 		width: 8rem;
