@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Twitter Clone</title>
+</head>
+
+<body>
+    <header>
+        <img src="https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250">
+        <nav>
+            <h4>Twitter Clone</h3>
+                <form id="form" action="">
+                    <label for="search">Search</label>
+                    <select name="user" id="select-input" onchange='displayData(this.value)'>
+                    </select>
+                </form>
+        </nav>
+    </header>
+    <section id="user-details">
+        <!-- user details -->
+    </section>
+    <section id='display-section'>
+        <div id="post-details">
+            <!-- posts -->
+        </div>
+        <div id="comments" style="padding: 0 1rem;">
+            <p>Post 1 Comments</p>
+
+            <!-- comments -->
+        </div>
+    </section>
+    <script src="index.js"></script>
+</body>
+
+</html>
