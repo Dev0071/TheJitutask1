@@ -30,6 +30,18 @@ class UserList {
 			this.users.splice(index, 1);
 		}
 	}
+	saveUsersToLocalStorage() {
+		localStorage.setItem('users', JSON.stringify(this.users));
+	}
+
+	loadUsersFromLocalStorage() {
+		const usersJSON = localStorage.getItem('users');
+		if (usersJSON) {
+			const usersData = JSON.parse(usersJSON);
+			return usersData.map(data => new User(data.name, data.img, data.email, data.phone));
+		}
+		return null;
+	}
 
 	updateUser(user) {}
 }
@@ -66,9 +78,6 @@ const displayUsers = () => {
 
 const deleteUser = userName => {
 	const userList = new UserList(users);
-	// console.log(userList);
-	console.log(users);
-
 	const userToDelete = users.find(user => user.name === userName);
 	if (userToDelete) {
 		userList.deleteUser(userToDelete);
