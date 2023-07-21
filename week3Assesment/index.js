@@ -47,6 +47,7 @@ form.addEventListener('submit', e => {
 });
 
 const displayUsers = () => {
+	userDiv.innerHTML = '';
 	users.forEach(user => {
 		const userTemplate = `<div class="user">
             <img src="${user.img}" alt="${user.name}">
@@ -64,13 +65,13 @@ const displayUsers = () => {
 };
 
 const deleteUser = userName => {
-	// const userList = new UserList(users);
+	const userList = new UserList(users);
 	// console.log(userList);
 	console.log(users);
 
 	const userToDelete = users.find(user => user.name === userName);
 	if (userToDelete) {
-		UserList.deleteUser(userToDelete);
+		userList.deleteUser(userToDelete);
 		displayUsers();
 	}
 };
