@@ -17,7 +17,8 @@ const fetchFunction = async url => {
 const displayUserData = async userId => {
 	const user = await fetchFunction(`https://jsonplaceholder.typicode.com/users/${userId}`);
 	if (user) {
-		userDetailsDiv.innerHTML = `<article class="user">
+		userDetailsDiv.innerHTML = `
+	<article class="user">
         <h4>${user.name}</h4>
         <h5>@${user.username}</h5>
         <a href="#">Link to my website</a>
@@ -88,7 +89,6 @@ const displayComments = async postId => {
 	const comments = await fetchFunction('https://jsonplaceholder.typicode.com/comments');
 	const postComments = comments.filter(comment => comment.postId === parseInt(postId));
 	postCounter.textContent = `Post ${postId} Comments`;
-	// console.log(postComments);
 	postComments.forEach(comment => {
 		const commentTemplate = `
 		<article class="post">
@@ -123,7 +123,6 @@ const displayData = async userId => {
 	displayUserData(userId);
 	await displayPosts(userId);
 	const userFirstPost = document.querySelector('.post');
-	console.log(userFirstPost);
 	if (userFirstPost) {
 		displayComments(userFirstPost.dataset.postId);
 	}
