@@ -1,0 +1,8 @@
+-- CREATE OR ALTER PROCEDURE getNoteById
+--     @id NVARCHAR(36)
+-- AS
+-- BEGIN
+--     SELECT id, content, title, createdAt
+--     FROM notesTable
+--     WHERE id = @id;
+-- END
