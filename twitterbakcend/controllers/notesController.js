@@ -78,7 +78,7 @@ const deleteNote = async (req, res) => {
 	try {
 		const { id } = req.params;
 		const result = await DB.exec('deleteNoteById', { id });
-
+		console.log(result.rowsAffected[0] === 0);
 		if (result.rowsAffected[0] === 0) {
 			return res.status(404).json({ message: 'Note not found' });
 		}
