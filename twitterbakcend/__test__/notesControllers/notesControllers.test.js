@@ -105,7 +105,7 @@ describe('notesControllers', () => {
 		expect(res.status).toHaveBeenCalledWith(500);
 		expect(res.json).toHaveBeenCalledWith({ message: 'Failed to delete note' });
 	});
-	it('should return failed to delete a note', async () => {
+	it('should return  note found', async () => {
 		const res = {
 			status: jest.fn().mockReturnThis(),
 			json: jest.fn(),
