@@ -1,4 +1,3 @@
-import { pool } from '../database/config/dbconfig.js';
 import { v4 as uuidv4 } from 'uuid';
 import { DB } from '../database/databaseHelpers/index.js';
 
@@ -18,7 +17,7 @@ const createNote = async (req, res) => {
 		res.status(200).json({ message: 'Note created successfully' });
 	} catch (error) {
 		console.log('Error creating note:', error.message);
-		res.status(500).json({ message: 'Note creation failed, try again later' });
+		res.status(500).json({ error: 'Note creation failed, try again later' });
 	}
 };
 
@@ -42,7 +41,7 @@ const getNote = async (req, res) => {
 		const { id } = req.params;
 
 		const result = await DB.exec('getNoteById', { id });
-		console.log(result);
+		// console.log(result);
 		const note = result.recordset[0];
 
 		if (!note) {

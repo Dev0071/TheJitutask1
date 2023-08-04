@@ -5,4 +5,4 @@ CREATE TABLE notesTable (
     createdAt DATETIME2 NOT NULL
 );
 
-DROP TABLE notesTable;
+DROP TABLE notesTable
