@@ -7,12 +7,19 @@ const createNote = async (req, res) => {
 		const { content, title } = req.body;
 		const createdAt = new Date();
 
-		await DB.exec('insertNote', {
+		if (!content || !title) {
+			res.status(400).json({ error: 'Note title and content should not be empty' });
+		}
+
+		const results = await DB.exec('insertNote', {
 			id,
 			content,
 			title,
 			createdAt,
 		});
+		if (results.rowsAffected[0] === 0) {
+			res.status(400).json({ error: 'something wrong with your stored procedure' });
+		}
 
 		res.status(200).json({ message: 'Note created successfully' });
 	} catch (error) {

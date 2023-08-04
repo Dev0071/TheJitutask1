@@ -1,11 +1,15 @@
 import { DB } from '../../database/databaseHelpers/index.js';
-import { createNote, getNote, getNotes, deleteNote } from '../../controllers/notesController';
+import {
+	createNote,
+	getNote,
+	getNotes,
+	deleteNote,
+	updateNote,
+} from '../../controllers/notesController';
 
 jest.mock('../../database/databaseHelpers/index.js');
 
 describe('notesControllers', () => {
-	beforeAll(() => {});
-
 	const req = {
 		body: { content: 'suwdgdftyqftd', title: 'uwfdtfwrdrdi' },
 	};
@@ -23,6 +27,31 @@ describe('notesControllers', () => {
 		await createNote(req, res);
 		expect(res.status).toHaveBeenCalledWith(200);
 		expect(res.json).toHaveBeenCalledWith({ message: 'Note created successfully' });
+		res.status.mockRestore();
+	});
+	it('should return note title and content should not be empty', async () => {
+		const res = {
+			status: jest.fn().mockReturnThis(),
+			json: jest.fn(),
+		};
+		const req = { body: {} };
+
+		await createNote(req, res);
+		expect(res.status).toHaveBeenCalledWith(400);
+		expect(res.json).toHaveBeenCalledWith({ error: 'Note title and content should not be empty' });
+		res.status.mockRestore();
+	});
+
+	it('someting wrong eith your stored procedure', async () => {
+		const res = {
+			status: jest.fn().mockReturnThis(),
+			json: jest.fn(),
+		};
+		DB.exec.mockImplementationOnce(() => ({ rowsAffected: [0] }));
+
+		await createNote(req, res);
+		expect(res.status).toHaveBeenCalledWith(400);
+		expect(res.json).toHaveBeenCalledWith({ error: 'something wrong with your stored procedure' });
 		res.status.mockRestore();
 	});
 
@@ -118,6 +147,56 @@ describe('notesControllers', () => {
 
 		DB.exec.mockImplementationOnce(() => ({ rowsAffected: [0] }));
 		await deleteNote(req, res);
+		expect(res.status).toHaveBeenCalledWith(404);
+		expect(res.json).toHaveBeenCalledWith({ message: 'Note not found' });
+	});
+	it('should return  note deleted successfully', async () => {
+		const res = {
+			status: jest.fn().mockReturnThis(),
+			json: jest.fn(),
+		};
+
+		const id = 'gcytdc87478';
+		const req = {
+			params: { id },
+		};
+
+		DB.exec.mockImplementationOnce(() => ({ rowsAffected: [1] }));
+		await deleteNote(req, res);
+		expect(res.status).toHaveBeenCalledWith(200);
+		expect(res.json).toHaveBeenCalledWith({ message: 'Note deleted successfully' });
+	});
+	it('should return  note updated successfully', async () => {
+		const res = {
+			status: jest.fn().mockReturnThis(),
+			json: jest.fn(),
+		};
+
+		const id = 'gcytdc87478';
+		const req = {
+			params: { id },
+			body: { content: 'dhuefu', title: 'dtedygdu' },
+		};
+
+		DB.exec.mockImplementationOnce(() => ({ rowsAffected: [1] }));
+		await updateNote(req, res);
+		expect(res.status).toHaveBeenCalledWith(200);
+		expect(res.json).toHaveBeenCalledWith({ message: 'Note updated successfully' });
+	});
+	it('should return  note not found', async () => {
+		const res = {
+			status: jest.fn().mockReturnThis(),
+			json: jest.fn(),
+		};
+
+		const id = 'gcytdc87478';
+		const req = {
+			body: { content: 'dhuefu', title: 'dtedygdu' },
+			params: { id },
+		};
+
+		DB.exec.mockImplementationOnce(() => ({ rowsAffected: [0] }));
+		await updateNote(req, res);
 		expect(res.status).toHaveBeenCalledWith(404);
 		expect(res.json).toHaveBeenCalledWith({ message: 'Note not found' });
 	});
