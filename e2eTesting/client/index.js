@@ -11,10 +11,6 @@ submit.addEventListener('click', event => {
 		if (field.value.trim() === '') {
 			isValid = false;
 			field.style.borderColor = '#ff8080';
-			const errorSpan = document.createElement('span');
-			errorSpan.classList.add('error');
-			errorSpan.textContent = 'This field is required';
-			field.parentNode.appendChild(errorSpan);
 		}
 	});
 
@@ -28,6 +24,7 @@ submit.addEventListener('click', event => {
 		emailError.classList.add('error');
 		emailError.textContent = 'Invalid email format';
 		emailField.parentNode.appendChild(emailError);
+		return;
 	}
 
 	if (!isValid) {
@@ -72,15 +69,18 @@ const registerUser = async data => {
 		});
 
 		const result = await response.json();
-		console.log('Result:', result);
 		const resultContainer = document.getElementById('resultContainer');
-		resultContainer.textContent = result.message;
+		resultContainer.textContent = result.message ?? result.error;
+		resultContainer.style.display = 'block';
 		resultContainer.style.color = response.ok ? 'green' : 'red';
 
 		setTimeout(() => {
 			resultContainer.textContent = '';
+			// resultContainer.style.display = 'none';/
 		}, 3000);
 	} catch (error) {
 		console.error('Error registering user:', error);
 	}
 };
+
+module.exports = { registerUser, isValidEmail };
