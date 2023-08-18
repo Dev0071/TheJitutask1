@@ -3,7 +3,7 @@ CREATE OR Alter PROCEDURE updateStudent
   @name NVARCHAR(255),
   @email NVARCHAR(255),
   @regNo NVARCHAR(50),
-  @class NVARCHAR(50),
+  @classNo NVARCHAR(50),
   @fee_balance DECIMAL(10, 2)
 AS
 BEGIN
@@ -11,7 +11,7 @@ BEGIN
   SET name = @name,
       email = @email,
       regNo = @regNo,
-      class = @class,
+      classNo = @classNo,
       fee_balance = @fee_balance
   WHERE id = @studentId;
 END;

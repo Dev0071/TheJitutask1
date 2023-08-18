@@ -7,9 +7,10 @@ import {
 	getStudent,
 } from '../controllers/students.controllers.js';
 const studentRouter = Router();
+
 studentRouter.get('/', getStudents);
 studentRouter.get('/:id', getStudent);
-studentRouter.post('/', addStudent);
+studentRouter.post('/create', addStudent);
 studentRouter.put('/:id', updateStudent);
 studentRouter.delete('/:id', deleteStudent);
 

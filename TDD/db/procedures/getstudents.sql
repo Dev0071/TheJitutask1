@@ -1,6 +1,6 @@
-CREATE PROCEDURE getstudents
+CREATE OR ALTER PROCEDURE getstudents
 AS
 BEGIN
-  SELECT id, name, email, regNo, class, fee_balance
+  SELECT id, name, email, regNo, classNo, fee_balance
   FROM Students;
 END;
