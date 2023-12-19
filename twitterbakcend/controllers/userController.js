@@ -7,9 +7,8 @@ async function checkIfUserExists(username, email) {
 		const result = await DB.exec('checkIfUserExistsProc', { username, email });
 
 		const userCount = result.recordset[0].count;
-		return userCount > 0; // Return true if a user with the provided username or email already exists
-	} catch (error) {
-		// console.log('Error checking if user exists:', error.message);
+		return userCount > 0; 
+		
 		throw error;
 	}
 }
@@ -32,15 +31,9 @@ const authUser = async (req, res) => {
 
 		res.status(200).json({ message: 'registered successfully' });
 	} catch (err) {
-		// console.log(err);
 		res.status(404).json({ message: 'user already exists' });
 	}
 };
 
-//**POST /api/users/ - Register a user
-//**POST /api/users/auth - Authenticate a user and get a token
-//**POST /api/users/logout - Logout a user and clear cookie
-//**GET /api/users/profile - Get a user profile
-//**PUT /api/users/profile - Update a user profile
 
 export { authUser };
